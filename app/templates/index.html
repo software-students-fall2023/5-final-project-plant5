@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Web App</title>
+    <body style="background-color:rgba(0, 255, 136, 0.471);"></body>
+</head>
+<body>
+    <h1>Use this page to send and view data to the database</h1>
+    
+    <form action="/add" method="post">
+        <label for="text">Enter Text:</label>
+        <input type="text" id="text" name="text" required>
+        <button type="submit">Add Text</button>
+    </form>
+
+    <h2>Results from Database</h2>
+    <ul>
+        {% for entry in data %}
+            <li>{{ entry.text }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
