@@ -5,14 +5,8 @@ name: CI
 on:
   # Triggers the workflow on push events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Image version'
-        required: true
 #2
 env:
   REGISTRY: "registry.digitalocean.com/se-project-5"
