@@ -15,15 +15,9 @@ jobs:
 
       - name: Deploy to DigitalOcean
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} << 'ENDSSH'
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-          sshpass -p ${{ secrets.DROPLET_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.DROPLET_USERNAME }}@localhost << 'ENDDEPLOY'
+          sshpass -p ${{ secrets.DROPLET_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} << 'ENDSSH'
           cd /root/myapp  # Replace with the path to your app on the Droplet
           git pull
           docker-compose up -d --build
-          ENDDEPLOY
           ENDSSH
-
-
-# useless change to removegv  gwgregvresgvsergre
+# jeros jreigjes
