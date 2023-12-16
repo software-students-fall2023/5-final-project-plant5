@@ -18,7 +18,7 @@ jobs:
           sshpass -p ${{ secrets.DROPLET_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} << 'ENDSSH'
           cd /root/myapp  # Replace with the path to your app on the Droplet
           git pull
-          docker-compose down
+          docker-compose down -v
           docker-compose up -d --build
           ENDSSH
 # jeros jreigjes
