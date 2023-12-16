@@ -22,3 +22,5 @@ jobs:
           git pull
           docker-compose up -d --build
           ENDSSH
+
+# useless change to remove
