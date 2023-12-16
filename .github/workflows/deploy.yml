@@ -3,7 +3,7 @@ name: Deploy to DigitalOcean
 on:
   push:
     branches:
-      - deploy  # Set this to the branch you want to deploy from
+      - deploy2  # Set this to the branch you want to deploy from
 
 jobs:
   deploy:
