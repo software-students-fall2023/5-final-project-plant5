@@ -19,6 +19,7 @@ jobs:
           cd /root/myapp  # Replace with the path to your app on the Droplet
           git pull
           docker-compose down -v
-          docker-compose up -d --build
+          docker-compose build --no-cache
+          docker-compose up -d
           ENDSSH
 # jeros jreigjes
