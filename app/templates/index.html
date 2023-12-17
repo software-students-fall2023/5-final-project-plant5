@@ -6,28 +6,25 @@
     <body style="background-color:rgba(0, 255, 136, 0.471);"></body>
 </head>
 <body>
-    <h1>Use this page to send and view data to the database</h1>
+    <h1>Welcome to the Message Board</h1>
     {% if session_username %}
-        <p>Logged in as: {{ session_username }}</p>
-        <a href="/logout">Logout</a>
+        <p>Logged in as: {{ session_username }}
+        <a href="/logout">Logout</a></p>
     {% else %}
         <p>Not logged in</p>
     {% endif %}
-    <p>If you don't have an account <a href="/register">register here</a>.</p>
-    <p>After creating an account please <a href="/login">login here</a>.</p>
-    <h1>This line should show up if nat's deploy worked!</h1>
-    <h1>test test show up no?</h1>
-    <form action="/add" method="post">
-        <label for="text">Enter Text:</label>
-        <input type="text" id="text" name="text" required>
-        <button type="submit">Add Text</button>
-    </form>
+    <p>If you don't have an account <a href="/register">register here</a>. After creating an account please <a href="/login">login here</a>.</p>
+    
 
-    <h2>Results from Database</h2>
+    <h2>Recent Messages</h2>
     <ul>
         {% for entry in data %}
-            <li>{{ entry.text }}</li>
+        <strong>{{ entry.username }}:</strong> {{ entry.text }}<br>
         {% endfor %}
     </ul>
+    <form action="/add" method="post">
+        <input type="text" id="text" name="text" placeholder="Enter message" required>
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>

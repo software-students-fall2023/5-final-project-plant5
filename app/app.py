@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from pymongo import MongoClient
+import random
+import colorsys
 
 app = Flask(__name__)
 app.secret_key = "bobbykey"  # This the key for sessions
@@ -72,7 +74,6 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # Clear the session to log out the user
     session.clear()
     data = collection.find()
     return render_template("index.html", data=data)
@@ -81,8 +82,9 @@ def logout():
 @app.route("/add", methods=["POST"])
 def add():
     text = request.form["text"]
-    collection.insert_one({"text": text})
-    return index()
+    username = session.get("username")  # Get the username from the session
+    collection.insert_one({"text": text, "username": username})
+    return redirect("/")
 
 
 if __name__ == "__main__":
