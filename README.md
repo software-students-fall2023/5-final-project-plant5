@@ -9,8 +9,9 @@ MessageBoard is a minimalist web app that allows for sharing text messages on a 
 3. [Phoebus Yip](https://github.com/phoebusyip)
 4. [Alicia Hwang](https://github.com/a-j-hwang)
 
-##Links
+## Links
 Continuous delivery to Docker Hub: https://hub.docker.com/r/rdi4217/project5repo
+
 Continuous deployment on DigitalOcean: http://159.65.244.47:5000/
 
 ## How to Run:
