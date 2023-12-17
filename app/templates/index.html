@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Web App</title>
+    <meta http-equiv="refresh" content="60"> <!-- THIS WILL REFRESH THE PAGE EVERY 60 SECONDS ... Kind of a lazy way to make it live but thats just temporary? -->
     <body style="background-color:rgba(0, 255, 136, 0.471);"></body>
 </head>
 <body>
@@ -19,12 +20,16 @@
     <h2>Recent Messages</h2>
     <ul>
         {% for entry in data %}
-        <strong>{{ entry.username }}:</strong> {{ entry.text }}<br>
+            <div>
+            [<span>{{ entry.timestamp.strftime('%I:%M:%S') if entry.timestamp else "" }}</span>][<strong>{{ entry.username|default("") }}</strong>]: {{ entry.text }}
+            </div>
         {% endfor %}
+        
     </ul>
     <form action="/add" method="post">
         <input type="text" id="text" name="text" placeholder="Enter message" required>
         <button type="submit">Send</button>
+        <button type="button" onclick="location.reload();">Refresh</button>
     </form>
 </body>
 </html>
