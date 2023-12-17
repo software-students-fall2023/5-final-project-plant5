@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, session
 from pymongo import MongoClient
 
 app = Flask(__name__)
+app.secret_key = "bobbykey"  # This the key for sessions
 
 
 def connect_to_mongo():
@@ -33,8 +34,9 @@ accounts = db["accounts"]
 
 @app.route("/")
 def index():
+    session_username = session.get("username")
     data = collection.find()
-    return render_template("index.html", data=data)
+    return render_template("index.html", data=data, session_username=session_username)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -53,9 +55,27 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     data2 = accounts.find()
-    # Fetch data from MongoDB collection
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        # Check if username/password combo exist in the accounts collection
+        user = accounts.find_one({"username": username, "password": password})
+
+        if user:
+            # if so, we create a new session with name username
+            session["username"] = username
+            return redirect("/")
 
     return render_template("login.html", data2=data2)
+
+
+@app.route("/logout")
+def logout():
+    # Clear the session to log out the user
+    session.clear()
+    data = collection.find()
+    return render_template("index.html", data=data)
 
 
 @app.route("/add", methods=["POST"])

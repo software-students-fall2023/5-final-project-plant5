@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1>Use this page to send and view data to the database</h1>
+    {% if session_username %}
+        <p>Logged in as: {{ session_username }}</p>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <p>Not logged in</p>
+    {% endif %}
     <p>If you don't have an account <a href="/register">register here</a>.</p>
     <p>After creating an account please <a href="/login">login here</a>.</p>
     <h1>This line should show up if nat's deploy worked!</h1>
