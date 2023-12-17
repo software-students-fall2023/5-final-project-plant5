@@ -14,7 +14,7 @@
             height: 300px; /* Fixed height */
             width: 500px; /* Smaller width, adjust as needed */
             overflow-y: scroll;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
             padding: 10px;
             margin: 20px auto; /* Centering the box */
             list-style-type: none; /* Optional: Removes bullet points from list */
@@ -63,12 +63,13 @@
             var messagesList = document.getElementById('messages');
             messagesList.innerHTML = ''; // Clear existing messages
 
-            // Display only the last 10 messages
-            lastTwentyMessages.forEach(function(message) {
-                var formattedTimestamp = message.timestamp; // Assuming timestamp is already formatted
-                var formattedText = message.username + ': ' + message.text;
-                messagesList.innerHTML += '<li>[' + formattedTimestamp + '] ' + formattedText + '</li>';
-            });
+         // Display only the last 10 messages
+         var lastTenMessages = messages.slice(-18);
+        lastTenMessages.forEach(function(message) {
+            var formattedTimestamp = message.timestamp; // Assuming timestamp is already formatted
+            var formattedText = message.username + ': ' + message.text;
+            messagesList.innerHTML += '<li>[' + formattedTimestamp + '] ' + formattedText + '</li>';
+        });
 
             // Scroll to the bottom of the message list to show the latest message
             messagesList.scrollTop = messagesList.scrollHeight;
