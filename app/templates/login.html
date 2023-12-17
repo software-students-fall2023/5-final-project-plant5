@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form action="/login" method="post">
+        <label for="username_email">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+    <p>If you don't have an account <a href="/register">register here</a>.</p>
+    <br>
+    <h2>Existing Accounts in Database:</h2>
+    <ul>
+        {% for entry in data2 %}
+            <li>{{ entry.username }}</li>
+            <li>{{ entry.password }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>
