@@ -36,6 +36,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    error_message = None
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -43,7 +44,9 @@ def login():
         if user:
             session["username"] = username
             return redirect("/")
-    return render_template("login.html")
+        else:
+            error_message = "This username and password combination does not exist. Please check your input."
+    return render_template("login.html", error=error_message)
 
 @app.route("/logout")
 def logout():
