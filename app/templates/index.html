@@ -64,7 +64,6 @@
             messagesList.innerHTML = ''; // Clear existing messages
 
             // Display only the last 10 messages
-            var lastTwentyMessages = messages.slice(-10);
             lastTwentyMessages.forEach(function(message) {
                 var formattedTimestamp = message.timestamp; // Assuming timestamp is already formatted
                 var formattedText = message.username + ': ' + message.text;
