@@ -12,7 +12,7 @@
         }
         #messages {
             height: 300px; /* Fixed height */
-            width: 400px; /* Smaller width, adjust as needed */
+            width: 500px; /* Smaller width, adjust as needed */
             overflow-y: scroll;
             border: 1px solid #ccc;
             padding: 10px;
@@ -64,7 +64,6 @@
             messagesList.innerHTML = ''; // Clear existing messages
 
             // Display only the last 10 messages
-            var lastTwentyMessages = messages.slice(-10);
             lastTwentyMessages.forEach(function(message) {
                 var formattedTimestamp = message.timestamp; // Assuming timestamp is already formatted
                 var formattedText = message.username + ': ' + message.text;
