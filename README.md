@@ -15,3 +15,5 @@ Continuous delivery to Docker Hub: https://hub.docker.com/r/rdi4217/project5repo
 Continuous deployment on DigitalOcean: http://159.65.244.47:5000/
 
 ## How to Run:
+Clone the repository. In the root directory, run docker compose up.
+Then, navigate to localhost:5000 to access the web app.
