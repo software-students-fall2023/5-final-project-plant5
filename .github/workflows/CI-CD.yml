@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: 
+      - main
+      - pho_cdci
 
 env:
   REGISTRY: "docker.io"
