@@ -1,5 +1,5 @@
-[![CI, CD](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/CI-CD.yml/badge.svg)](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/CI-CD.yml)
 [![Run Tests](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/test.yml/badge.svg)](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/test.yml)
+[![CI, CD](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/CI-CD.yml/badge.svg)](https://github.com/software-students-fall2023/5-final-project-plant5/actions/workflows/CI-CD.yml)
 # MessageBoard
 MessageBoard is a minimalist web app that allows for sharing text messages on a public message board.
 
