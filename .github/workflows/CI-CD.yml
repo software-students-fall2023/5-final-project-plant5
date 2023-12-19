@@ -1,10 +1,11 @@
-name: CI
+name: CI and CD
 
 on:
   push:
     branches: 
       - main
       - pho_cdci
+      - master
 
 env:
   REGISTRY: "docker.io"
@@ -28,10 +29,17 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Deploy to your environment
+      - name: Deploy to DigitalOcean
         run: |
-          # Add your deployment steps here
+          sshpass -p ${{ secrets.DROPLET_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} << 'ENDSSH'
+          cd /root/myapp  # Replace with the path to your app on the Droplet
+          git pull
+          docker-compose down -v
+          docker-compose build --no-cache
+          docker-compose up -d
+          ENDSSH
