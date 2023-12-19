@@ -22,4 +22,4 @@ In the root directory, run `docker-compose up --build`
 
 Navigate to [localhost:5000](http://localhost:5000/) to access the web app.    
 
-Please make sure that port 5000 (for the web app) and port 27017 (for mongodb) are available on your machine. If unavailable, visit the deployed site or manually change the ports to use the web app.
+Please make sure that port 5000 (for the web app) and port 27017 (for mongodb) are available on your machine. If unavailable, visit the deployed site or manually change the ports in `docker-compose.yml` to use the web app.
